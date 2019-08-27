@@ -1,13 +1,23 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/">首页</router-link> |
+      <router-link to="/login">登陆</router-link> |
+      <router-link to="/profile">个人中心</router-link>
     </div>
     <router-view/>
   </div>
 </template>
-
+<script>
+import {getTest} from './api/index'
+export default {
+  mounted(){
+    getTest().then(data=>{
+      console.log(data);
+    })
+  }
+}
+</script>
 <style>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
